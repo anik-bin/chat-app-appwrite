@@ -22,7 +22,7 @@ const ChatState = (props) => {
       payload
     );
 
-    console.log('Created', response);
+    // console.log('Created', response);
 
     setMessages(prevState => [response, ...messages])
     setMessageBody('')
@@ -36,16 +36,17 @@ const ChatState = (props) => {
         Query.limit(20)
       ]
     )
-    console.log('Response:', response);
+    // console.log('Response:', response);
     setMessages(response.documents)
   }
 
-  const deleteMessage = async () => {
-    databases.deleteDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, messageID);
+  const deleteMessage = async (message_id) => {
+    databases.deleteDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, message_id);
+    setMessages(prevState=> messages.filter(message => message.$id !== message_id))
   }
 
   return (
-    <ChatContext.Provider value={{messages, messageBody, createMessage, getMessages, setMessageBody}}>
+    <ChatContext.Provider value={{messages, messageBody, createMessage, getMessages, setMessageBody, deleteMessage}}>
       {props.children}
     </ChatContext.Provider>
   )
