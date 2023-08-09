@@ -1,0 +1,131 @@
+:root {
+    --mainBgColor: rgba(20, 20, 31, 11);
+    --secondaryBgColor: rgba(27, 27, 39, 1);
+    --borderColor1: rgba(40, 41, 57, 1);
+    --borderColor2: rgba(79, 86, 105, 1);
+    --textColorMain: #fff;
+    --textColorSecondary: rgb(226, 227, 232);
+    --themeColorMain: rgba(219, 26, 90, 1);
+    --themeColorSecondary: #386fd2;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--mainBgColor);
+    color: var(--textColorMain);
+}
+
+.container {
+    max-width: 40rem;
+    padding: 0.1rem 1rem;
+    margin: 2rem auto;
+}
+
+.home_container {
+    padding: 2em;
+    background-color: var(--secondaryBgColor);
+    border-radius: 0 0 10px 10px;
+    border: 1px solid var(--borderColor1);
+}
+
+textarea {
+    background: var(--mainBgColor);
+    border: none;
+    border-bottom: 1px solid var(--borderColor1);
+    padding: 1rem;
+    border-radius: 3px;
+    width: 100%;
+    color: var(--color-light);
+    outline: none;
+    font-size: 18px;
+    text-shadow: none !important;
+    resize: none;
+}
+
+.message_form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.user_messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* button */
+
+.btn {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn_secondary {
+    background-color: #8db3dd;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.send_btn_wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete_btn {
+    color: #8db3dd;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 16px;
+    padding-top: 10px;
+}
+
+.delete_btn:hover {
+    color: red;
+}
+
+/* message */
+
+.message_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 1em;
+}
+
+.message_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message_body {
+    padding: 0.5em 0;
+    color: var(--textColorSecondary);
+    background-color: var(--themeColorMain);
+    padding: 1em;
+    border-radius: 20px;
+    width: fit-content;
+    max-width: 100%;
+    word-wrap: break-word;
+    /* added */
+}
+
+.message_timestamp {
+    margin-left: 1em;
+    color: rgb(164, 161, 161);
+}
