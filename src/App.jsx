@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <ChatState>
+      <div className="container">
       <Home />
+      </div>
       </ChatState>
     </>
   )

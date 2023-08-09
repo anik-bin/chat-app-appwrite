@@ -1,34 +1,52 @@
-import React, { useState, useEffect } from 'react'
-import { databases, DATABASE_ID, COLLECTION_ID_MESSAGES } from '../appwrite/appwriteConfig'
+import React, { useEffect, useContext } from 'react';
+import ChatContext from '../Context/Chat/ChatContext'
+import MessageForm from './MessageForm';
+import { Trash2 } from 'react-feather';
+import client, { COLLECTION_ID_MESSAGES, DATABASE_ID, databases } from '../appwrite/appwriteConfig';
 
 const Home = () => {
 
-  const [messages, setMessages] = useState([])
+  const context = useContext(ChatContext);
+  const { messages, getMessages, deleteMessage } = context;
 
   useEffect(() => {
     getMessages()
+
+    client.subscribe([`databases.${DATABASE_ID}.collections.${COLLECTION_ID_MESSAGES}.documents`], response => {
+      // Callback will be executed on changes for documents A and all files.
+      // console.log(response);
+
+      if (response.events.includes("databases.*.collections.*.documents.*.create",)) {
+        console.log("Message is created");
+      }
+
+      if (response.events.includes("databases.*.collections.*.documents.*.delete",)) {
+        console.log("Message is deleted");
+      }
+    });
   }, [])
 
-  const handleSubmit = async (e)=>{
-    e.preventDefault()
-
-    
-  }
-  
-
-  const getMessages = async () => {
-    const response = await databases.listDocuments(DATABASE_ID, COLLECTION_ID_MESSAGES)
-    console.log('Response:', response);
-    setMessages(response.documents)
-  }
   return (
     <>
-      <div>
-        {messages.map(messages=>(
-          <div key={messages.$id}>
-            <span>{messages.body}</span>
-          </div>
-        ))}
+      <div className="home_container">
+        <MessageForm />
+        <div>
+          {messages.map(message => (
+            <div key={message.$id} className='message_wrapper'>
+
+              <div className="message_header">
+                <small className='message_timestamp'>{new Date(message.$createdAt).toLocaleString([], { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</small>
+
+                <Trash2 className="delete_btn" onClick={() => { deleteMessage(message.$id) }} />
+              </div>
+
+              <div className="message_body">
+                <span>{message.body}</span>
+              </div>
+
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
