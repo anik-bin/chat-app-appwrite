@@ -35,6 +35,9 @@ body {
     border: 1px solid var(--borderColor1);
 }
 
+input[type="text"],
+input[type="password"],
+input[type="email"],
 textarea {
     background: var(--mainBgColor);
     border: none;
@@ -49,6 +52,13 @@ textarea {
     resize: none;
 }
 
+.auth_container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .message_form {
     display: flex;
     flex-direction: column;
@@ -61,6 +71,20 @@ textarea {
     justify-content: center;
     align-items: center;
 }
+
+.form_wrapper {
+    width: 600px;
+    width: 600px;
+    padding: 2em;
+}
+
+.field_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.5em 0;
+}
+
 
 /* button */
 
@@ -78,6 +102,12 @@ textarea {
 
 .btn:hover {
     opacity: 0.8;
+}
+
+.btn_main {
+    padding: 1em 2em;
+    background-color: rgba(219, 26, 90, 1);
+    color: #fff;
 }
 
 .send_btn_wrapper {
@@ -128,4 +158,24 @@ textarea {
 .message_timestamp {
     margin-left: 1em;
     color: rgb(164, 161, 161);
+}
+
+.header_wrapper {
+    background-color: var(--mainBgColor);
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid var(--borderColor1);
+    border-bottom: none;
+}
+
+.header_link {
+    color: #c7d8eb;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header_link:hover {
+    color: #8db3dd;
 }
