@@ -32,8 +32,7 @@ export const AuthProvider = ({ children }) => {
 
         try {
             const response = await account.createEmailSession(credentials.email, credentials.password);
-            console.log('Logged In', response);
-
+            
             const accountDetails = await account.get();
             setUser(accountDetails);
             navigate('/')

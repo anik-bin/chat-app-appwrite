@@ -17,15 +17,12 @@ const Home = () => {
 
     const unsubscribe = client.subscribe([`databases.${DATABASE_ID}.collections.${COLLECTION_ID_MESSAGES}.documents`], response => {
       // Callback will be executed on changes for documents A and all files.
-      // console.log(response);
 
       if (response.events.includes("databases.*.collections.*.documents.*.create",)) {
-        console.log("Message is created");
         setMessages(prevState => [response.payload, ...prevState])
       }
 
       if (response.events.includes("databases.*.collections.*.documents.*.delete",)) {
-        console.log("Message is deleted");
         setMessages(prevState => prevState.filter(message => message.$id !== response.payload.$id))
       }
     });

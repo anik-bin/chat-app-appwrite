@@ -43,13 +43,11 @@ const ChatState = (props) => {
         Query.limit(20)
       ]
     )
-    // console.log('Response:', response);
     setMessages(response.documents)
   }
 
   const deleteMessage = async (message_id) => {
     databases.deleteDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, message_id);
-    // setMessages(prevState=> prevState.filter(message => message.$id !== message_id))
   }
 
   return (
