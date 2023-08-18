@@ -1,12 +1,13 @@
 :root {
-    --mainBgColor: rgba(20, 20, 31, 11);
-    --secondaryBgColor: rgba(27, 27, 39, 1);
-    --borderColor1: rgba(40, 41, 57, 1);
-    --borderColor2: rgba(79, 86, 105, 1);
+    --mainBgColor: rgba(39, 39, 39);
+    --secondaryBgColor: rgb(0, 0, 0);
+    --borderColor1: rgb(39, 39, 39);
+    --borderColor2: rgb(39, 39, 39);
     --textColorMain: #fff;
     --textColorSecondary: rgb(226, 227, 232);
-    --themeColorMain: rgba(219, 26, 90, 1);
+    --themeColorMain: rgb(219, 206, 26);
     --themeColorSecondary: #386fd2;
+    --messageTextColor: rgb(0, 0, 0);
 }
 
 * {
@@ -14,6 +15,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+a {
+    cursor: pointer;
+    color: var(--themeColorMain);
 }
 
 
@@ -97,7 +103,7 @@ textarea {
 }
 
 .btn_secondary {
-    background-color: #8db3dd;
+    background-color:var(--themeColorMain)
 }
 
 .btn:hover {
@@ -106,8 +112,7 @@ textarea {
 
 .btn_main {
     padding: 1em 2em;
-    background-color: rgba(219, 26, 90, 1);
-    color: #fff;
+    background-color: var(--themeColorMain)
 }
 
 .send_btn_wrapper {
@@ -116,7 +121,7 @@ textarea {
 }
 
 .delete_btn {
-    color: #8db3dd;
+    color: #ffffff;
     cursor: pointer;
     transition: 0.3s;
     width: 16px;
@@ -124,7 +129,7 @@ textarea {
 }
 
 .delete_btn:hover {
-    color: red;
+    color: var(--themeColorMain)
 }
 
 /* message */
@@ -145,7 +150,7 @@ textarea {
 
 .message_body {
     padding: 0.5em 0;
-    color: var(--textColorSecondary);
+    color: var(--messageTextColor);
     background-color: var(--themeColorMain);
     padding: 1em;
     border-radius: 20px;
@@ -171,11 +176,11 @@ textarea {
 }
 
 .header_link {
-    color: #c7d8eb;
+    color: #ffffff;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .header_link:hover {
-    color: #8db3dd;
+    color: var(--themeColorMain)
 }
