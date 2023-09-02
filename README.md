@@ -1,8 +1,13 @@
-# React + Vite
+# Chat Application using Appwrite as backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a chat application created using ReactJS for the frontend and [Appwrite](https://appwrite.io/) for the backend
 
-Currently, two official plugins are available:
+## How to set up locally on your machine
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Fork the repository and clone the project into your local machine.
+2. Open the terminal and type `npm i` to install the necessary packages.
+3. Now your front end has been set up properly.
+
+For the backend part, refer to this [article](https://blog.aniketbindhani.com/chat-application-using-appwrite).
+
+After following each step correctly you can run the project locally on your machine.
